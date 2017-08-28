@@ -1,0 +1,68 @@
+<div class="input-group">
+  <span class="input-group-addon">
+    <span
+      class="glyphicon glyphicon-search"
+      aria-hidden="true">
+    </span>
+  </span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+    #Filter
+    (keyup)="0">
+</div>
+
+<table class="table table-responsive table-striped table-hover">
+  <thead>
+    <tr>
+      <th>
+        <button
+          class="btn btn-default"
+          (click)="onSortId()">ID</button>
+      </th>
+      <th>
+        <button
+          class="btn btn-default"
+          (click)="onSortFirstName()">Imię</button>
+      </th>
+      <th>
+        <button
+          class="btn btn-default"
+          (click)="onSortLastName()">Nazwisko</button>
+      </th>
+      <th>
+        <button
+          class="btn btn-default"
+          (click)="onSortTitle()">Tytuł</button>
+      </th>
+      <th>
+        <button
+          class="btn btn-default"
+          (click)="onSortPublisher()">Wydawnictwo</button>
+        </th>
+      <th>
+        <button
+        class="btn btn-default"
+        (click)="onSortEdition()">Wydanie</button>
+      </th>
+      <th>
+        <button
+        class="btn btn-default"
+        (click)="onSortYear()">Rok</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books | filter:Filter.value">
+      <td>{{ book.id }}</td>
+      <td>{{ book.first_name }}</td>
+      <td>{{ book.last_name }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.publisher }}</td>
+      <td>{{ book.edition }}</td>
+      <td>{{ book.year }}</td>
+
+    </tr>
+  </tbody>
+</table>
